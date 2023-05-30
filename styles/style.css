@@ -1,0 +1,50 @@
+body {
+ font-family: 'Roboto', sans-serif;
+ background-color: #F6F5FF;
+ color: #353535;
+ margin: 0;
+ padding: 0;
+}
+
+/* Стили для заголовков */
+h1 {
+ font-size: 36px;
+ font-weight: bold;
+}
+
+/* Стили для параграфов */
+p {
+ font-size: 16px;
+ line-height: 1.5;
+ margin-bottom: 20px;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background-color: #C9CEEA;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    width: 1240px;
+    height: 100%;
+}
+.logo{
+    width: 120px;
+    height: 120px;
+    background-color: #C9CEEA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-left: 40px;
+}
+.logo img{
+    width: 80px;
+    height: 80px;
+}
