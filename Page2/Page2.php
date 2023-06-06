@@ -48,6 +48,49 @@
                     <img src="../images/cratecostume.png" alt="">
                 </div>
                 <div class="detail-table">
+                    <div id="change-record-form-container">
+                        <div id="overlay-2"></div>
+                        <form class="change-form" id="change-record-form" action="scripts/change_record.php" method="POST">
+                            <div class="column">
+                                <div class="column-name">Название товара</div>
+                                <input type="text" id="name" name="ProductName">
+                            </div>
+                            <div class="column">
+                                <div class="column-name">Единицы измерения</div>
+                                <input type="text" id="name" name="name">
+                            </div>
+                            <div class="column">
+                                <div class="column-name">Количество</div>
+                                <input type="text" id="name" name="name">
+                            </div>
+                            <div class="column">
+                                <div class="column-name">Цена</div>
+                                <input type="text" id="name" name="name">
+                            </div>
+                            <div class="column">
+                                <div class="column-name">Поставщик</div>
+                                <input type="text" id="name" name="name">
+                            </div>
+                            <div class="column">
+                                <div class="column-name">Покупатель</div>
+                                <input type="text" id="name" name="name">
+                            </div>
+                            <div class="column">
+                                <div class="column-name">Дата поступления</div>
+                                <input type="text" id="name" name="name">
+                            </div>
+                            <div class="column">
+                                <div class="column-name">Дата продажи</div>
+                                <input type="text" id="name" name="name">
+                            </div>
+                            <div class="column">
+                                <div class="column-name">Примечание</div>
+                                <input type="text" id="name" name="name">
+                            </div>
+                        
+                            <button type="submit">Добавить</button>
+                        </form>
+                    </div>
                     <table>
                         <tr>
                             <th>Название товара</th>
@@ -61,59 +104,69 @@
                             <th>Примечание</th>
                         </tr>
                         <tr>
-                            <td>Строка 1, ячейка 1</td>
-                            <td>Строка 1, ячейка 2</td>
-                            <td>Строка 1, ячейка 3</td>
-                            <td>Строка 1, ячейка 4</td>
-                            <td>Строка 1, ячейка 5</td>
-                            <td>Строка 1, ячейка 6</td>
-                            <td>Строка 1, ячейка 7</td>
-                            <td>Строка 1, ячейка 8</td>
-                            <td>Строка 1, ячейка 9</td>
+                            <td class="table-td">Строка 1, ячейка 1</td>
+                            <td class="table-td">Строка 1, ячейка 2</td>
+                            <td class="table-td">Строка 1, ячейка 3</td>
+                            <td class="table-td">Строка 1, ячейка 4</td>
+                            <td class="table-td">Строка 1, ячейка 5</td>
+                            <td class="table-td">Строка 1, ячейка 6</td>
+                            <td class="table-td">Строка 1, ячейка 7</td>
+                            <td class="table-td">Строка 1, ячейка 8</td>
+                            <td class="table-td">Строка 1, ячейка 9</td>
+                            <td><button class="change-button"><img src="../images/gear.svg" alt=""></button></td>
+                            <td><button class="delite-button"><img src="../images/delite.svg" alt=""></button></td>
                         </tr>
                         <tr>
-                            <td>Строка 2, ячейка 1</td>
-                            <td>Строка 2, ячейка 2</td>
-                            <td>Строка 2, ячейка 3</td>
-                            <td>Строка 2, ячейка 4</td>
-                            <td>Строка 2, ячейка 5</td>
-                            <td>Строка 2, ячейка 6</td>
-                            <td>Строка 2, ячейка 7</td>
-                            <td>Строка 2, ячейка 8</td>
-                            <td>Строка 2, ячейка 9</td>
+                            <td class="table-td">Строка 2, ячейка 1</td>
+                            <td class="table-td">Строка 2, ячейка 2</td>
+                            <td class="table-td">Строка 2, ячейка 3</td>
+                            <td class="table-td">Строка 2, ячейка 4</td>
+                            <td class="table-td">Строка 2, ячейка 5</td>
+                            <td class="table-td">Строка 2, ячейка 6</td>
+                            <td class="table-td">Строка 2, ячейка 7</td>
+                            <td class="table-td">Строка 2, ячейка 8</td>
+                            <td class="table-td">Строка 2, ячейка 9</td>
+                            <td><button class="change-button"><img src="../images/gear.svg" alt=""></button></td>
+                            <td><button class="delite-button"><img src="../images/delite.svg" alt=""></button></td>
                         </tr>
                         <tr>
-                            <td>Строка 3, ячейка 1</td>
-                            <td>Строка 3, ячейка 2</td>
-                            <td>Строка 3, ячейка 3</td>
-                            <td>Строка 3, ячейка 4</td>
-                            <td>Строка 3, ячейка 5</td>
-                            <td>Строка 3, ячейка 6</td>
-                            <td>Строка 3, ячейка 7</td>
-                            <td>Строка 3, ячейка 8</td>
-                            <td>Строка 3, ячейка 9</td>
+                            <td class="table-td">Строка 3, ячейка 1</td>
+                            <td class="table-td">Строка 3, ячейка 2</td>
+                            <td class="table-td">Строка 3, ячейка 3</td>
+                            <td class="table-td">Строка 3, ячейка 4</td>
+                            <td class="table-td">Строка 3, ячейка 5</td>
+                            <td class="table-td">Строка 3, ячейка 6</td>
+                            <td class="table-td">Строка 3, ячейка 7</td>
+                            <td class="table-td">Строка 3, ячейка 8</td>
+                            <td class="table-td">Строка 3, ячейка 9</td>
+                            <td><button class="change-button"><img src="../images/gear.svg" alt=""></button></td>
+                            <td><button class="delite-button"><img src="../images/delite.svg" alt=""></button></td>
                         </tr>
                         <tr>
-                            <td>Строка 4, ячейка 1</td>
-                            <td>Строка 4, ячейка 2</td>
-                            <td>Строка 4, ячейка 3</td>
-                            <td>Строка 4, ячейка 4</td>
-                            <td>Строка 4, ячейка 5</td>
-                            <td>Строка 4, ячейка 6</td>
-                            <td>Строка 4, ячейка 7</td>
-                            <td>Строка 4, ячейка 8</td>
-                            <td>Строка 4, ячейка 9</td>
+                            <td class="table-td">Строка 4, ячейка 1</td>
+                            <td class="table-td">Строка 4, ячейка 2</td>
+                            <td class="table-td">Строка 4, ячейка 3</td>
+                            <td class="table-td">Строка 4, ячейка 4</td>
+                            <td class="table-td">Строка 4, ячейка 5</td>
+                            <td class="table-td">Строка 4, ячейка 6</td>
+                            <td class="table-td">Строка 4, ячейка 7</td>
+                            <td class="table-td">Строка 4, ячейка 8</td>
+                            <td class="table-td">Строка 4, ячейка 9</td>
+                            <td><button class="change-button"><img src="../images/gear.svg" alt=""></button></td>
+                            <td><button class="delite-button"><img src="../images/delite.svg" alt=""></button></td>
                         </tr>
                         <tr>
-                            <td>Строка 5, ячейка 1</td>
-                            <td>Строка 5, ячейка 2</td>
-                            <td>Строка 5, ячейка 3</td>
-                            <td>Строка 5, ячейка 4</td>
-                            <td>Строка 5, ячейка 5</td>
-                            <td>Строка 5, ячейка 6</td>
-                            <td>Строка 5, ячейка 7</td>
-                            <td>Строка 5, ячейка 8</td>
-                            <td>Строка 5, ячейка 9</td>
+                            <td class="table-td">Строка 5, ячейка 1</td>
+                            <td class="table-td">Строка 5, ячейка 2</td>
+                            <td class="table-td">Строка 5, ячейка 3</td>
+                            <td class="table-td">Строка 5, ячейка 4</td>
+                            <td class="table-td">Строка 5, ячейка 5</td>
+                            <td class="table-td">Строка 5, ячейка 6</td>
+                            <td class="table-td">Строка 5, ячейка 7</td>
+                            <td class="table-td">Строка 5, ячейка 8</td>
+                            <td class="table-td">Строка 5, ячейка 9</td>
+                            <td><button class="change-button"><img src="../images/gear.svg" alt=""></button></td>
+                            <td><button class="delite-button"><img src="../images/delite.svg" alt=""></button></td>
                         </tr>
                       </table>
                 </div>

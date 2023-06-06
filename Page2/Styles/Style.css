@@ -222,7 +222,7 @@ body {
         height: 60px;
         z-index: 1;
     }
-    .detail-table td{
+    .detail-table .table-td{
         background-color: #F6F5FF;
         box-shadow: 0px 2px 6px rgba(0,0,0,0.3);
         border-radius: 10px;
@@ -236,7 +236,7 @@ body {
         transition: all 0.8s ease;
         font-size: 16px;
     }
-    td:hover{
+    .table-td:hover{
         z-index: 2;
         transform: scale(2.2);
         font-size: 8px;
@@ -312,6 +312,42 @@ body {
         z-index: 9998;
         background-color: rgba(0,0,0,0.5);
       }
+      #change-record-form-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        background-color: #B7BFED;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        animation: change-form 0.5s ease-out forwards;
+        width: 400px;
+      }
+      @keyframes change-form {
+        from {
+          height: 0;
+          opacity: 0;
+        }
+        to {
+          height: auto;
+          opacity: 1;
+        }
+      }
+      
+      #overlay-2 {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9998;
+        background-color: rgba(0,0,0,0.5);
+      }
+
       .add-form{
         display: flex;
         flex-direction: column;
@@ -368,7 +404,50 @@ body {
       .add-form button:active{
         background-color: #8991cc;
       }
-      .change-wrapper img{
+      tr{
+        position: relative;
+      }
+      .change-button{
+        background-color: #C9CEEA;
+        border: none;
+        position: absolute;
+        right: -70px;
+        bottom: 30%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s all ease;
+      }
+      .change-button:hover{
+        background-color: #8f9dec;
+        border-radius: 10px;
+        transform: scale(1.1);
+      }
+      .change-button:active{
+        background-color: #B7BFED;
+      }
+      .delite-button{
+        background-color: #C9CEEA;
+        border: none;
+        position: absolute;
+        right: -140px;
+        bottom: 30%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s all ease;
+      }
+      .delite-button:hover{
+        background-color: #8f9dec;
+        border-radius: 10px;
+        transform: scale(1.1);
+      }
+      .delite-button:active{
+        background-color: #B7BFED;
+      }
+      .delite-button img{
+        width: 30px;
+        height: 30px;
+      }
+      .change-button img{
         width: 30px;
         height: 30px;
       }
