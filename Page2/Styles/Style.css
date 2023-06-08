@@ -173,6 +173,7 @@ body {
    .content{
        width: 1200px;
        display: flex;
+       align-items: center;
        margin-top: 40px;
        justify-content: space-between;
        flex-direction: column;
@@ -208,6 +209,7 @@ body {
         width: 100%;
         height: 560px;
         position: relative;
+        overflow-x: hidden;
     }
     .detail-table th{
         border-radius: 20px;
@@ -227,7 +229,9 @@ body {
         box-shadow: 0px 2px 6px rgba(0,0,0,0.3);
         border-radius: 10px;
         text-align: center;
-        max-width: 120px;
+        width: 110px;
+        max-width: 110px;
+        height: 60px;
         max-height: 100px;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -242,12 +246,13 @@ body {
         font-size: 8px;
         white-space: normal;
         position: absolute;
-        height: 200px;
-        width: 300px;
     }
     table{
         border-spacing: 10px;
         border-collapse: separate;
+    }
+    .full-table{
+      overflow: visible;
     }
     .add-button-container{
         width: 100%;
@@ -404,6 +409,37 @@ body {
       .add-form button:active{
         background-color: #8991cc;
       }
+      .change-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 860px;
+        gap: 5px;
+      }
+      .change-form button{
+        background-color: #828eed;
+        font-family: 'Roboto';
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0px 2px 6px rgba(0,0,0,0.3);
+        transition: all 0.2s ease;
+        cursor: pointer;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 0px;
+      }
+      .change-form button:hover{
+        background-color: #6474e9;
+      }
+      .change-form button:active{
+        background-color: #8991cc;
+      }
       tr{
         position: relative;
       }
@@ -411,8 +447,8 @@ body {
         background-color: #C9CEEA;
         border: none;
         position: absolute;
-        right: -70px;
-        bottom: 30%;
+        right: -50px;
+        top: 0%;
         border-radius: 10px;
         cursor: pointer;
         transition: 0.3s all ease;
@@ -429,8 +465,8 @@ body {
         background-color: #C9CEEA;
         border: none;
         position: absolute;
-        right: -140px;
-        bottom: 30%;
+        right: -50px;
+        bottom: 0%;
         border-radius: 10px;
         cursor: pointer;
         transition: 0.3s all ease;
@@ -444,12 +480,12 @@ body {
         background-color: #B7BFED;
       }
       .delite-button img{
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
       }
       .change-button img{
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
       }
 
 .footer-wrapper{

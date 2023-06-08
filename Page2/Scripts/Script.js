@@ -63,7 +63,7 @@ const showChangeRecordForm = () => {
   overlay2.style.display = 'block';
   
   // обработчик клика на оверлее
-  overlay2.addEventListener('click', hideAddRecordForm);
+  overlay2.addEventListener('click', hideChangeRecordForm);
 }
 
 const hideChangeRecordForm = () => {
@@ -79,5 +79,51 @@ const hideChangeRecordForm = () => {
 }
 
 // обрабочик клика на кнопке "Добавить запись"
-const changeRecordButton = document.querySelector('#change-record-button');
-changeRecordButton.addEventListener('click', showAddRecordForm);
+const changeRecordButtons = document.querySelectorAll('.change-button');
+changeRecordButtons.forEach(button => {
+  button.addEventListener('click', showChangeRecordForm);
+});
+
+/// 3
+
+const data = {
+
+};
+
+// const button = document.getElementById('change-record-button');
+// button.addEventListener('click', sendRequest);
+
+const changeRecordButtonsId = document.querySelectorAll('.change-button');
+changeRecordButtonsId.forEach(button => {
+  const parentElement = button.parentNode.parentNode;
+  var table = parentElement.parentNode;
+  console.log(table.firstChild);
+  const childElements = parentElement.querySelectorAll('.table-td');
+  var tdData = [];
+  childElements.forEach(td =>{
+    tdData.push(td.innerHTML);
+  })
+  //получить форму
+  // получить инпуты этой формы
+  // циклом пройтись по ним и заполнить инпуты 
+  
+  button.addEventListener('click', () => sendRequest(button, tdData));
+});
+
+function sendRequest(button, tdData) {
+  data.uid = button.getAttribute('data-uid');
+  data.data = tdData;
+  fetch('http://storage/Page2/Scripts/change_record.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => {
+      console.error(error);
+      // здесь можно добавить обработку ошибок
+    });
+}

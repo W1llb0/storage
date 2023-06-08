@@ -10,6 +10,28 @@
  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    <?
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "storage";
+    
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    
+    $sql = "SELECT * FROM products";
+    $result = $conn->query($sql);
+    $tableColumnName = $conn->query("SHOW COLUMNS FROM products;");
+    $columnName = [];
+    while($row = $tableColumnName->fetch_assoc()){
+        $columnName[] = $row['Field'];
+        // print_r($row['Field']);
+    }
+
+    ?>
     <div class="body-wrapper">
         <header>
             <div class="header-wrapper container">
@@ -49,49 +71,19 @@
                 </div>
                 <div class="detail-table">
                     <div id="change-record-form-container">
-                        <div id="overlay-2"></div>
                         <form class="change-form" id="change-record-form" action="scripts/change_record.php" method="POST">
-                            <div class="column">
-                                <div class="column-name">Название товара</div>
-                                <input type="text" id="name" name="ProductName">
-                            </div>
-                            <div class="column">
-                                <div class="column-name">Единицы измерения</div>
-                                <input type="text" id="name" name="name">
-                            </div>
-                            <div class="column">
-                                <div class="column-name">Количество</div>
-                                <input type="text" id="name" name="name">
-                            </div>
-                            <div class="column">
-                                <div class="column-name">Цена</div>
-                                <input type="text" id="name" name="name">
-                            </div>
-                            <div class="column">
-                                <div class="column-name">Поставщик</div>
-                                <input type="text" id="name" name="name">
-                            </div>
-                            <div class="column">
-                                <div class="column-name">Покупатель</div>
-                                <input type="text" id="name" name="name">
-                            </div>
-                            <div class="column">
-                                <div class="column-name">Дата поступления</div>
-                                <input type="text" id="name" name="name">
-                            </div>
-                            <div class="column">
-                                <div class="column-name">Дата продажи</div>
-                                <input type="text" id="name" name="name">
-                            </div>
-                            <div class="column">
-                                <div class="column-name">Примечание</div>
-                                <input type="text" id="name" name="name">
-                            </div>
+                            <?foreach($columnName as $name):?>
+                                <div class='column'>
+                                    <div class='column-name'> <?= $name ?> </div>
+                                    <input type='text' id='name' name='ProductName' value='<?=$name  ?>'>
+                                </div>
+                            <?endforeach;?>
+
                         
                             <button type="submit">Добавить</button>
                         </form>
                     </div>
-                    <table>
+                    <table class="full-table">
                         <tr>
                             <th>Название товара</th>
                             <th>Единицы измерения</th>
@@ -103,71 +95,28 @@
                             <th>Дата продажи</th>
                             <th>Примечание</th>
                         </tr>
-                        <tr>
-                            <td class="table-td">Строка 1, ячейка 1</td>
-                            <td class="table-td">Строка 1, ячейка 2</td>
-                            <td class="table-td">Строка 1, ячейка 3</td>
-                            <td class="table-td">Строка 1, ячейка 4</td>
-                            <td class="table-td">Строка 1, ячейка 5</td>
-                            <td class="table-td">Строка 1, ячейка 6</td>
-                            <td class="table-td">Строка 1, ячейка 7</td>
-                            <td class="table-td">Строка 1, ячейка 8</td>
-                            <td class="table-td">Строка 1, ячейка 9</td>
-                            <td><button class="change-button"><img src="../images/gear.svg" alt=""></button></td>
-                            <td><button class="delite-button"><img src="../images/delite.svg" alt=""></button></td>
-                        </tr>
-                        <tr>
-                            <td class="table-td">Строка 2, ячейка 1</td>
-                            <td class="table-td">Строка 2, ячейка 2</td>
-                            <td class="table-td">Строка 2, ячейка 3</td>
-                            <td class="table-td">Строка 2, ячейка 4</td>
-                            <td class="table-td">Строка 2, ячейка 5</td>
-                            <td class="table-td">Строка 2, ячейка 6</td>
-                            <td class="table-td">Строка 2, ячейка 7</td>
-                            <td class="table-td">Строка 2, ячейка 8</td>
-                            <td class="table-td">Строка 2, ячейка 9</td>
-                            <td><button class="change-button"><img src="../images/gear.svg" alt=""></button></td>
-                            <td><button class="delite-button"><img src="../images/delite.svg" alt=""></button></td>
-                        </tr>
-                        <tr>
-                            <td class="table-td">Строка 3, ячейка 1</td>
-                            <td class="table-td">Строка 3, ячейка 2</td>
-                            <td class="table-td">Строка 3, ячейка 3</td>
-                            <td class="table-td">Строка 3, ячейка 4</td>
-                            <td class="table-td">Строка 3, ячейка 5</td>
-                            <td class="table-td">Строка 3, ячейка 6</td>
-                            <td class="table-td">Строка 3, ячейка 7</td>
-                            <td class="table-td">Строка 3, ячейка 8</td>
-                            <td class="table-td">Строка 3, ячейка 9</td>
-                            <td><button class="change-button"><img src="../images/gear.svg" alt=""></button></td>
-                            <td><button class="delite-button"><img src="../images/delite.svg" alt=""></button></td>
-                        </tr>
-                        <tr>
-                            <td class="table-td">Строка 4, ячейка 1</td>
-                            <td class="table-td">Строка 4, ячейка 2</td>
-                            <td class="table-td">Строка 4, ячейка 3</td>
-                            <td class="table-td">Строка 4, ячейка 4</td>
-                            <td class="table-td">Строка 4, ячейка 5</td>
-                            <td class="table-td">Строка 4, ячейка 6</td>
-                            <td class="table-td">Строка 4, ячейка 7</td>
-                            <td class="table-td">Строка 4, ячейка 8</td>
-                            <td class="table-td">Строка 4, ячейка 9</td>
-                            <td><button class="change-button"><img src="../images/gear.svg" alt=""></button></td>
-                            <td><button class="delite-button"><img src="../images/delite.svg" alt=""></button></td>
-                        </tr>
-                        <tr>
-                            <td class="table-td">Строка 5, ячейка 1</td>
-                            <td class="table-td">Строка 5, ячейка 2</td>
-                            <td class="table-td">Строка 5, ячейка 3</td>
-                            <td class="table-td">Строка 5, ячейка 4</td>
-                            <td class="table-td">Строка 5, ячейка 5</td>
-                            <td class="table-td">Строка 5, ячейка 6</td>
-                            <td class="table-td">Строка 5, ячейка 7</td>
-                            <td class="table-td">Строка 5, ячейка 8</td>
-                            <td class="table-td">Строка 5, ячейка 9</td>
-                            <td><button class="change-button"><img src="../images/gear.svg" alt=""></button></td>
-                            <td><button class="delite-button"><img src="../images/delite.svg" alt=""></button></td>
-                        </tr>
+                            <? 
+                            
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td class='table-td'>". $row["ProductName"] . "</td>";
+                                    echo "<td class='table-td'>". $row["Units"] . "</td>";
+                                    echo "<td class='table-td'>". $row["Quantity"] . "</td>";
+                                    echo "<td class='table-td'>". $row["Price"] . "</td>";
+                                    echo "<td class='table-td'>". $row["Provider"] . "</td>";
+                                    echo "<td class='table-td'>". $row["CustomerName"] . "</td>";
+                                    echo "<td class='table-td'>". $row["SellDate"] . "</td>";
+                                    echo "<td class='table-td'>". $row["PurchaseDate"] . "</td>";
+                                    echo "<td class='table-td'>". $row["Note"] . "</td>";
+                                    echo "<td>";
+                                    echo "<button class='change-button' data-uid='" . $row["Id"] . "' id='change-record-button'><img src='../images/gear.svg' alt=''></button>";
+                                    echo "<button class='delite-button'><img src='../images/delite.svg' alt=''></button>";
+                                    echo "</td>";
+                                    echo "</tr>";
+                                }
+                            }
+                            ?>
                       </table>
                 </div>
                 <div id="add-record-form-container">
@@ -216,6 +165,7 @@
                     <button class="add-button" id="add-record-button">Добавить запись</button>
                 </div>
                 <div id="overlay"></div>
+                <div id="overlay-2"></div>
             </div>
         </div>
         <footer>
