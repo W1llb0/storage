@@ -3,7 +3,7 @@ $data = json_decode(file_get_contents('php://input'));
 print_r($data);
 exit();
 // Подключиться к базе данных
-$conn = mysqli_connect('localhost', 'root', '', 'storage');
+$conn = mysqli_connect('localhost', 'root', '', 'storage', 3307);
 
 // Проверить подключение к базе данных
 if (!$conn) {

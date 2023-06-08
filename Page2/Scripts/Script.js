@@ -1,10 +1,10 @@
 const showAddRecordForm = () => {
   const formContainer = document.querySelector('#add-record-form-container');
   const overlay = document.querySelector('#overlay');
-  
+
   // показываем форму и оверлей
   formContainer.style.display = 'block';
-  
+
   // запускаем анимацию
   formContainer.animate([
     { height: '0', opacity: '0' },
@@ -14,10 +14,9 @@ const showAddRecordForm = () => {
     easing: 'ease-out',
     fill: 'forwards'
   });
-  
 
   overlay.style.display = 'block';
-  
+
   // обработчик клика на оверлее
   overlay.addEventListener('click', hideAddRecordForm);
 }
@@ -38,17 +37,15 @@ const hideAddRecordForm = () => {
 const addRecordButton = document.querySelector('#add-record-button');
 addRecordButton.addEventListener('click', showAddRecordForm);
 
-
-
 //// forma 2
 
 const showChangeRecordForm = () => {
   const formContainer2 = document.querySelector('#change-record-form-container');
   const overlay2 = document.querySelector('#overlay-2');
-  
+
   // показываем форму и оверлей
   formContainer2.style.display = 'block';
-  
+
   // запускаем анимацию
   formContainer2.animate([
     { height: '0', opacity: '0' },
@@ -58,10 +55,9 @@ const showChangeRecordForm = () => {
     easing: 'ease-out',
     fill: 'forwards'
   });
-  
+
 
   overlay2.style.display = 'block';
-  
   // обработчик клика на оверлее
   overlay2.addEventListener('click', hideChangeRecordForm);
 }
@@ -100,13 +96,25 @@ changeRecordButtonsId.forEach(button => {
   console.log(table.firstChild);
   const childElements = parentElement.querySelectorAll('.table-td');
   var tdData = [];
-  childElements.forEach(td =>{
+
+
+  childElements.forEach(td => {
     tdData.push(td.innerHTML);
   })
+
+  var inputs = parentElement.querySelectorAll('.column-name');
+
+  var i = 0;
+
+  inputs.forEach(input => {
+    inputs.setAttribute('value', tdData[$i]);
+    i++;
+  })
+
   //получить форму
   // получить инпуты этой формы
-  // циклом пройтись по ним и заполнить инпуты 
-  
+  // циклом пройтись по ним и заполнить инпуты
+
   button.addEventListener('click', () => sendRequest(button, tdData));
 });
 

@@ -78,8 +78,6 @@
                                     <input type='text' id='name' name='ProductName' value='<?=$name  ?>'>
                                 </div>
                             <?endforeach;?>
-
-                        
                             <button type="submit">Добавить</button>
                         </form>
                     </div>
