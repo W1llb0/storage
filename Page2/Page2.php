@@ -31,6 +31,8 @@
         // print_r($row['Field']);
     }
 
+    array_shift($columnName);
+
     ?>
     <div class="body-wrapper">
         <header>
@@ -71,15 +73,20 @@
                 </div>
                 <div class="detail-table">
                     <div id="change-record-form-container">
-                        <form class="change-form" id="change-record-form" action="scripts/change_record.php" method="POST">
+                        <form class="change-form" id="change-record-form" onsubmit="submitForm(event)" action="scripts/change_record.php" method="POST">
                             <?foreach($columnName as $name):?>
                                 <div class='column'>
                                     <div class='column-name'> <?= $name ?> </div>
-                                    <input type='text' id='name' name='ProductName' value='<?=$name  ?>'>
+                                    <input class="column-value" type='text' id='name' name='ProductName' value=''>
                                 </div>
                             <?endforeach;?>
-                            <button type="submit">Добавить</button>
+                            <button class="change-form-send" data-uid='<?echo $row["Id"]?>' type="submit">Добавить</button>
                         </form>
+                        <script type="text/JavaScript">
+                            function submitForm(event){
+                                event.preventDefault();
+                            }
+                        </script>
                     </div>
                     <table class="full-table">
                         <tr>

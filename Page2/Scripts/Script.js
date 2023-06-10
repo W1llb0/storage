@@ -39,7 +39,7 @@ addRecordButton.addEventListener('click', showAddRecordForm);
 
 //// forma 2
 
-const showChangeRecordForm = () => {
+  function showChangeRecordForm(button) {
   const formContainer2 = document.querySelector('#change-record-form-container');
   const overlay2 = document.querySelector('#overlay-2');
 
@@ -55,7 +55,25 @@ const showChangeRecordForm = () => {
     easing: 'ease-out',
     fill: 'forwards'
   });
+  const parentElement = button.parentNode.parentNode;
+  var table = parentElement.parentNode;
+  const childElements = parentElement.querySelectorAll('.table-td');
+  var tdData = [];
 
+
+  childElements.forEach(td => {
+    tdData.push(td.innerHTML);
+  })
+
+  var inputs = document.querySelectorAll('.column-value');
+  console.log(tdData);
+
+  var i = 0;
+  console.log(inputs)
+  inputs.forEach(input => {
+    input.setAttribute('value', tdData[i]);    
+    i++;
+  })
 
   overlay2.style.display = 'block';
   // обработчик клика на оверлее
@@ -77,7 +95,9 @@ const hideChangeRecordForm = () => {
 // обрабочик клика на кнопке "Добавить запись"
 const changeRecordButtons = document.querySelectorAll('.change-button');
 changeRecordButtons.forEach(button => {
-  button.addEventListener('click', showChangeRecordForm);
+  button.addEventListener('click', function(){
+    showChangeRecordForm(button);
+  });
 });
 
 /// 3
@@ -89,11 +109,10 @@ const data = {
 // const button = document.getElementById('change-record-button');
 // button.addEventListener('click', sendRequest);
 
-const changeRecordButtonsId = document.querySelectorAll('.change-button');
+const changeRecordButtonsId = document.querySelectorAll('.change-form-send');
 changeRecordButtonsId.forEach(button => {
   const parentElement = button.parentNode.parentNode;
   var table = parentElement.parentNode;
-  console.log(table.firstChild);
   const childElements = parentElement.querySelectorAll('.table-td');
   var tdData = [];
 
@@ -102,14 +121,7 @@ changeRecordButtonsId.forEach(button => {
     tdData.push(td.innerHTML);
   })
 
-  var inputs = parentElement.querySelectorAll('.column-name');
-
-  var i = 0;
-
-  inputs.forEach(input => {
-    inputs.setAttribute('value', tdData[$i]);
-    i++;
-  })
+  
 
   //получить форму
   // получить инпуты этой формы
