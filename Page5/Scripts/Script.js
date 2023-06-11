@@ -207,9 +207,9 @@ changeRecordButtonsId.forEach(button => {
 function sendRequest(uid) {
   data = {};
   data.data = fillData();
-  data.customerId = uid;
+  data.employerId = uid;
   console.log (data); 
-  fetch('http://storage/Page3/Scripts/change_record.php', {
+  fetch('http://storage/Page5/Scripts/change_record.php', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -226,9 +226,9 @@ function sendRequest(uid) {
 function deleteRequest(uid) {
   data = {};
   data.data = fillData();
-  data.customerId = uid;
+  data.employerId = uid;
   console.log (data); 
-  fetch('http://storage/Page3/Scripts/delete_record.php', {
+  fetch('http://storage/Page5/Scripts/delete_record.php', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

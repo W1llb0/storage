@@ -32,7 +32,7 @@ foreach ($data['data'] as $key => $value) {
 // Создать запрос на добавление записи в базу данных
 // print_r ($data);
 // exit();
-$sql = "DELETE FROM `products` WHERE `Id` = '" . $data['productId'] . "'";
+$sql = "DELETE FROM `customers` WHERE `Id` = '" . $data['customerId'] . "'";
 
 // Выполнить запрос
 if (mysqli_query($conn, $sql)) {

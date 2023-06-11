@@ -22,9 +22,9 @@
         die("Connection failed: " . $conn->connect_error);
     }
     
-    $sql = "SELECT * FROM products";
+    $sql = "SELECT * FROM suppliers";
     $result = $conn->query($sql);
-    $tableColumnName = $conn->query("SHOW COLUMNS FROM products;");
+    $tableColumnName = $conn->query("SHOW COLUMNS FROM suppliers;");
     $columnName = [];
     while($row = $tableColumnName->fetch_assoc()){
         $columnName[] = $row['Field'];
@@ -67,7 +67,7 @@
                 <div class="table-title">
                     <img src="../images/cratecostume.png" alt="">
                     <div class="table-title__name">
-                        Товары
+                        Поставщики
                     </div>
                     <img src="../images/cratecostume.png" alt="">
                 </div>
@@ -80,7 +80,7 @@
                                     <input class="column-value" type='text' id='name' name='ProductName' value=''>
                                 </div>
                             <?endforeach;?>
-                            <button class="change-form-send" id = "change-form-send" data-uid='<?echo $row["Id"]?>' type="submit">Добавить</button>
+                            <button class="change-form-send" id = "change-form-send" data-uid='<?echo $row["id"]?>' type="submit">Добавить</button>
                         </form>
                         <script type="text/JavaScript">
                             function submitForm(event){
@@ -90,35 +90,23 @@
                     </div>
                     <table class="full-table">
                         <tr>
-                            <th>Название товара</th>
-                            <th>Единицы измерения</th>
-                            <th>Количество</th>
-                            <th>Цена</th>
                             <th>Поставщик</th>
-                            <th>Покупатель</th>
-                            <th>Дата продажи</th>
-                            <th>Примечание</th>
-                            <th>Дата поступления</th>
+                            <th>Телефон</th>
+                            <th>Адрес</th>
                         </tr>
                             <? 
                             
                             if ($result->num_rows > 0) {
                                 while($row = $result->fetch_assoc()) {
                                     echo "<tr>";
-                                    echo "<td class='table-td'>". $row["ProductName"] . "</td>";
-                                    echo "<td class='table-td'>". $row["Units"] . "</td>";
-                                    echo "<td class='table-td'>". $row["Quantity"] . "</td>";
-                                    echo "<td class='table-td'>". $row["Price"] . "</td>";
-                                    echo "<td class='table-td'>". $row["Provider"] . "</td>";
-                                    echo "<td class='table-td'>". $row["CustomerName"] . "</td>";
-                                    echo "<td class='table-td'>". $row["SellDate"] . "</td>";
-                                    echo "<td class='table-td'>". $row["Note"] . "</td>";
-                                    echo "<td class='table-td'>". $row["PurchaseDate"] . "</td>";
+                                    echo "<td class='table-td'>". $row["SupplierName"] . "</td>";
+                                    echo "<td class='table-td'>". $row["Phone"] . "</td>";
+                                    echo "<td class='table-td'>". $row["Adress"] . "</td>";
                                     echo "<td>";
-                                    echo "<button class='change-button' data-uid='" . $row["Id"] . "' id='change-record-button'><img src='../images/gear.svg' alt=''></button>";
+                                    echo "<button class='change-button' data-uid='" . $row["id"] . "' id='change-record-button'><img src='../images/gear.svg' alt=''></button>";
                                     echo "
                                         <form class='delete-form' id='delete-record-form' onsubmit='submitForm(event)' action='scripts/delete_record.php' method='POST'>
-                                            <button class='delite-button' id='delete-button' data-uid='" . $row["Id"] . "' type='submit'><img src='../images/delite.svg' alt=''></button>
+                                            <button class='delite-button' id='delete-button' data-uid='" . $row["id"] . "' type='submit'><img src='../images/delite.svg' alt=''></button>
                                         </form>
                                     ";
                                     echo "</td>";
@@ -131,42 +119,18 @@
                 <div id="add-record-form-container">
                     <form class="add-form" id="add-record-form" action="scripts/add_record.php" method="POST">
                         <div class="column">
-                            <div class="column-name">Название товара</div>
-                            <input type="text" id="name" name="ProductName">
-                        </div>
-                        <div class="column">
-                            <div class="column-name">Единицы измерения</div>
-                            <input type="text" id="name" name="Units">
-                        </div>
-                        <div class="column">
-                            <div class="column-name">Количество</div>
-                            <input type="text" id="name" name="Quantity">
-                        </div>
-                        <div class="column">
-                            <div class="column-name">Цена</div>
-                            <input type="text" id="name" name="Price">
-                        </div>
-                        <div class="column">
                             <div class="column-name">Поставщик</div>
-                            <input type="text" id="name" name="Provider">
+                            <input type="text" id="name" name="SupplierName">
                         </div>
                         <div class="column">
-                            <div class="column-name">Покупатель</div>
-                            <input type="text" id="name" name="CustomerName">
+                            <div class="column-name">Телефон</div>
+                            <input type="text" id="name" name="Phone">
                         </div>
                         <div class="column">
-                            <div class="column-name">Дата продажи</div>
-                            <input type="text" id="name" name="SellDate">
+                            <div class="column-name">Адрес</div>
+                            <input type="text" id="name" name="Adress">
                         </div>
-                        <div class="column">
-                            <div class="column-name">Примечание</div>
-                            <input type="text" id="name" name="Note">
-                        </div>
-                        <div class="column">
-                            <div class="column-name">Дата поступления</div>
-                            <input type="text" id="name" name="PurchaseDate">
-                        </div>
-                    
+                        
                         <button type="submit">Добавить</button>
                     </form>
                 </div>

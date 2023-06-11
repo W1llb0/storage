@@ -8,14 +8,13 @@ if (!$conn) {
 }
 
 // Получить данные из формы
-$CustomerName = $_POST['CustomerName'];
-$SpeakTo = $_POST['SpeakTo'];
-$Post = $_POST['Post'];
-$Address = $_POST['Address'];
-$Phone = $_POST['Phone'];
+$name = $_POST['name'];
+$pasport = $_POST['pasport'];
+$phone = $_POST['phone'];
+$post = $_POST['post'];
 
 // Создать запрос на добавление записи в базу данных
-$sql = "INSERT INTO `customers` (`CustomerName`, `SpeakTo`, `Post`, `Address`, `Phone`) VALUES ('$CustomerName', '$SpeakTo', '$Post', '$Address', '$Phone')";
+$sql = "INSERT INTO `employees` (`name`, `pasport`, `phone`, `post`) VALUES ('$name', '$pasport', '$phone', '$post')";
 
 // Выполнить запрос
 if (mysqli_query($conn, $sql)) {

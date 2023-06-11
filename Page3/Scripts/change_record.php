@@ -27,7 +27,7 @@ foreach ($data['data'] as $key => $value) {
 // print_r($data['productId']);
 // exit();
 // Создать запрос на добавление записи в базу данных
-$sql = "UPDATE `products` SET " . implode(", ", $fields) . " WHERE `Id` = '". $data['productId'] . "'";
+$sql = "UPDATE `customers` SET " . implode(", ", $fields) . " WHERE `Id` = '". $data['customerId'] . "'";
 
 // Выполнить запрос
 if (mysqli_query($conn, $sql)) {

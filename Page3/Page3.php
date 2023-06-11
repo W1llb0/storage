@@ -37,7 +37,7 @@
     <div class="body-wrapper">
         <header>
             <div class="header-wrapper container">
-                <a class="logo" href='#'>
+                <a class="logo" href='../Page1/Page1.html'>
                     <img src="../images/Salvaged_Shelves_icon.png" alt="">
                 </a>
                 <div class="search">
@@ -47,16 +47,16 @@
                     </form>
                 </div>
                 <div class="tables-links">
-                    <a href="">
+                    <a href="../Page2/Page2.php">
                         Товары
                     </a>
-                    <a href="">
+                    <a href="../Page3/Page3.php">
                         Покупатели
                     </a>
-                    <a href="">
+                    <a href="../Page4/Page4.php">
                         Поставщики
                     </a>
-                    <a href="">
+                    <a href="../Page5/Page5.php">
                         Работники
                     </a>
                 </div>

@@ -1,4 +1,8 @@
 <?php
+$data = (array) json_decode(file_get_contents('php://input'));
+// print_r(getType($data));
+// exit();
+
 // Подключиться к базе данных
 $conn = mysqli_connect('localhost', 'root', '', 'storage');
 
@@ -8,18 +12,26 @@ if (!$conn) {
 }
 
 // Получить данные из формы
-$CustomerName = $_POST['CustomerName'];
-$SpeakTo = $_POST['SpeakTo'];
-$Post = $_POST['Post'];
-$Address = $_POST['Address'];
-$Phone = $_POST['Phone'];
+// $ProductName = $_POST['ProductName'];
 
+// $keys = array_keys($data);
+// $values = array_values($data);
+// print_r($keys);
+
+$fields = array();
+foreach ($data['data'] as $key => $value) {
+    $newKey = trim($key);
+    $fields[] = "`$newKey` = '$value'";
+}
+// print_r(implode(", ", $fields));
+// print_r($data['productId']);
+// exit();
 // Создать запрос на добавление записи в базу данных
-$sql = "INSERT INTO `customers` (`CustomerName`, `SpeakTo`, `Post`, `Address`, `Phone`) VALUES ('$CustomerName', '$SpeakTo', '$Post', '$Address', '$Phone')";
+$sql = "UPDATE `suppliers` SET " . implode(", ", $fields) . " WHERE `Id` = '". $data['supplierId'] . "'";
 
 // Выполнить запрос
 if (mysqli_query($conn, $sql)) {
-    echo "Запись успешно добавлена";
+    echo "Запись успешно изменена";
 } else {
     echo "Ошибка: " . mysqli_error($conn);
 }
