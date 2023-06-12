@@ -41,9 +41,9 @@
                     <img src="../images/Salvaged_Shelves_icon.png" alt="">
                 </a>
                 <div class="search">
-                    <form action="">
-                        <input type="search" class="search-bar" name="q" placeholder="Поиск по сайту">
-                        <i class="fa fa-search"><img class="search-icon" src="../images/Magnifying_glass.png" alt=""></i>
+                    <form action="scripts/search.php">
+                        <input type="search" class="search-bar" name="search" id="search" placeholder="Поиск по сайту">
+                        <button type="submit" class="fa fa-search"><img class="search-icon" src="../images/Magnifying_glass.png" alt=""></button>
                     </form>
                 </div>
                 <div class="tables-links">

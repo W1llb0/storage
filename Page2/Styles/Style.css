@@ -144,7 +144,11 @@ body {
        justify-content: center;
        width: 100px;
    }
-   
+   .search button{
+    background-color: transparent;
+    border: none;
+   }
+
    .tables-links a::before{
        content: "";
        position: absolute;

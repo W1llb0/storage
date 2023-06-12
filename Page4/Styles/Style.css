@@ -254,6 +254,10 @@ body {
     .full-table{
       overflow: visible;
     }
+    .search button{
+      background-color: transparent;
+      border: none;
+     }
     .add-button-container{
         width: 100%;
         display: flex;
